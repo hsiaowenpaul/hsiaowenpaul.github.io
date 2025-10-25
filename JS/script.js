@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     setTimeout(() => {
       preloader.classList.add('hidden');
-    }, 3500);
+    }, 2600);
     
     preloader.addEventListener('transitionend', () => {
       preloader.style.display = 'none';
@@ -133,12 +133,19 @@ if (box) {
 function updateTitle() {
   sections.forEach((section, index) => {
     const rect = section.getBoundingClientRect();
+
     if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-      titles.forEach(title => title.classList.add('hidden'));
+      titles.forEach(title => {
+        title.classList.add('hidden');
+        title.classList.remove('active');
+      });
+
       titles[index].classList.remove('hidden');
+      titles[index].classList.add('active');
     }
   });
 }
+
 
 window.addEventListener('scroll', updateTitle);
 window.addEventListener('load', updateTitle);
