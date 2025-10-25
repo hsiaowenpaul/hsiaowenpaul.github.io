@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     setTimeout(() => {
       preloader.classList.add('hidden');
-    }, 3200);
+    }, 3500);
     
     preloader.addEventListener('transitionend', () => {
       preloader.style.display = 'none';
